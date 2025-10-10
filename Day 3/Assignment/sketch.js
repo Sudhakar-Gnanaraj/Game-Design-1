@@ -2,7 +2,7 @@ let size;
 let xLength, yLength;
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(windowWidth, windowHeight);
   size = 50; 
   xLength = width / size;
   yLength = height / size;
