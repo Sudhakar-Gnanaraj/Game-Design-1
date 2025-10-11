@@ -12,6 +12,8 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  x = windowWidth/2;
+  y = windowHeight/2;
   //break the sprite image into individual images and store it into a 2D array (Note - 2D array is basically where each element fo the arrat is another array)
   // w -> width of each individual image
   // h -> height of each individual image
