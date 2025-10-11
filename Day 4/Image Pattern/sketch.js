@@ -1,4 +1,6 @@
 let g = [] , imageCount = 5;
+/*let capturer;
+let recording = false;*/
 
 function preload(){
   for(let i=0; i< imageCount; i++){
@@ -14,6 +16,10 @@ function setup() {
 function draw() {
   background(220);
   pattern(50);
+
+  /*if (recording) {
+    capturer.capture();
+  }*/
 }
 
 function pattern(size){
@@ -42,5 +48,20 @@ function pattern(size){
       }*/
     }
   }
+
+  /*function keyPressed() {
+    if (key === 'r') {
+      recording = true;
+      capturer.start();
+      console.log("Recording started...");
+    }
+
+    if (key === 's') {
+      recording = false;
+      capturer.stop();
+      capturer.save();
+      console.log("Recording stopped and saved.");
+    }
+  }*/
 }
 
