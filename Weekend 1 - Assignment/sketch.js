@@ -84,6 +84,7 @@ function draw() {
   scale(scaleX, scaleY);
 
   if (gameState === "title") {
+    frameRate(60);
     background(30);
     fill(255);
     textAlign(CENTER, CENTER);
@@ -95,6 +96,7 @@ function draw() {
       text("Press ENTER to continue", 480 / 2, 360 / 2 + 40);
     }
   } else if (gameState === "poem_intro") {
+    frameRate(60);
     drawPoemIntroScreen([
       "Two roads diverged in a yellow wood,",
       "And sorry I could not travel both",
@@ -103,8 +105,10 @@ function draw() {
       "To where it bent in the undergrowth;"
     ]);
   } else if (gameState === "game") {
+    frameRate(30);
     drawGameScreen(backgroundImage, allowedAreas);
   } else if (gameState === "path_poem_left") {
+    frameRate(60);
     drawPathPoemScreen([
       "Then took the other, worn and wide,",
       "With footsteps clear and voices near,",
@@ -113,6 +117,7 @@ function draw() {
       "A path familiar, yet still unknown,"
     ]);
   } else if (gameState === "path_poem_right") {
+    frameRate(60);
     drawPathPoemScreen([
       "Then took the other, as just as fair,",
       "And having perhaps the better claim,",
@@ -121,10 +126,13 @@ function draw() {
       "Had worn them really about the same,"
     ]);
   } else if (gameState === "path_game_left") {
+    frameRate(30);
     drawGameScreen(backgroundLeft, leftAllowed);
   } else if (gameState === "path_game_right") {
+    frameRate(30);
     drawGameScreen(backgroundRight, rightAllowed);
   } else if (gameState === "final_poem_left") {
+    frameRate(60);
     drawPathPoemScreen([
       "And both that morning equally lay",
       "In light that filtered soft and clear.",
@@ -133,6 +141,7 @@ function draw() {
       "And with that choice, I left behind fear.,"
     ]);
   } else if (gameState === "final_poem_right") {
+    frameRate(60);
     drawPathPoemScreen([
       "And both that morning equally lay",
       "In leaves no step had trodden black.",
@@ -141,9 +150,11 @@ function draw() {
       "I doubted if I should ever come back.,"
     ]);
   } else if (gameState === "final_game_left") {
+    frameRate(60);
     drawGameScreen(backgroundLeftFinal, leftAllowed);
     drawFinalScreenPrompt();
   } else if (gameState === "final_game_right") {
+    frameRate(60);
     drawGameScreen(backgroundRightFinal, rightAllowed);
     fireflies.forEach(f => {
       f.update();
@@ -151,6 +162,7 @@ function draw() {
     });
     drawFinalScreenPrompt();
   } else if (gameState === "final_poem_left_2") {
+    frameRate(60);
     drawPathPoemScreen([
       "I shall be telling this with a smile",
       "Somewhere ages and ages hence:",
@@ -159,6 +171,7 @@ function draw() {
       "And that has made all the difference."
     ]);
   } else if (gameState === "final_poem_right_2") {
+    frameRate(60);
     drawPathPoemScreen([
       "I shall be telling this with a sigh",
       "Somewhere ages and ages hence:",
