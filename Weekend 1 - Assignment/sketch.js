@@ -12,6 +12,9 @@ let idleCol = 0;
 let x = 240, y = 320;
 let xdir = 0, ydir = 0;
 
+let ambientMusic;
+let musicStarted = false;
+
 let backgroundImage;
 let backgroundLeft, backgroundRight;
 let backgroundLeftFinal, backgroundRightFinal;
@@ -32,7 +35,6 @@ let secondPathChoice = { x: 180, y: 0, w: 120, h: 30 };
 let rightAllowed = [{ x: 180, y: 0, w: 120, h: 360 }];
 let leftAllowed = [{ x: 180, y: 0, w: 120, h: 360 }];
 
-// Fireflies
 let fireflies = [];
 
 let scaleX, scaleY;
@@ -44,6 +46,7 @@ function preload() {
   backgroundLeftFinal = loadImage('Images/left_final.png');
   backgroundRightFinal = loadImage('Images/right_final.png');
   spriteImage = loadImage('Images/walking.png');
+  ambientMusic = loadSound('Sound/ambient.mp3');
 }
 
 function setup() {
@@ -52,6 +55,9 @@ function setup() {
 
   scaleX = width / 480;
   scaleY = height / 360;
+
+  ambientMusic.setLoop(true);
+  ambientMusic.setVolume(0.3); 
 
   let w = spriteImage.width / spriteCols;
   let h = spriteImage.height / spriteRows;
@@ -315,6 +321,10 @@ function keyPressed(event) {
 
   if (event.key === 'Enter') {
     if (gameState === "title") {
+      if (!musicStarted) {
+      ambientMusic.play();
+      musicStarted = true;
+      }
       resetAllowedAreas();
       startTransition("poem_intro");
     } else if (gameState === "poem_intro") {
@@ -336,6 +346,8 @@ function keyPressed(event) {
       gameState === "final_poem_right_2"
     ) {
       resetAllowedAreas();
+      ambientMusic.pause(); 
+      musicStarted = false; 
       startTransition("title");
     }
   }
@@ -387,7 +399,6 @@ function resetPlayerPositionForState(state) {
     x = 240;
     y = 320;
 
-    // Shift player upward on final screens
     if (state === "final_game_left" || state === "final_game_right") {
       y -= 60;
     }
