@@ -95,9 +95,9 @@ function draw() {
     fill(255);
     textAlign(CENTER, CENTER);
     textSize(24);
-    text("The Road Not Taken", 480 / 2, 360 / 2 - 40);
+    text("The Road Taken", 480 / 2, 360 / 2 - 40);
     textSize(14);
-    text("by Robert Frost", 480 / 2, 360 / 2);
+    text("An Interactive Poem", 480 / 2, 360 / 2);
     if (frameCount % 60 < 30) {
       text("Press ENTER to continue", 480 / 2, 360 / 2 + 40);
     }
