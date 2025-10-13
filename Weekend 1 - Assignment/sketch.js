@@ -89,7 +89,7 @@ function draw() {
   push();
   scale(scaleX, scaleY);
 
-  if (gameState === "title") {
+  if (gameState == "title") {
     frameRate(60);
     background(30);
     fill(255);
@@ -101,7 +101,7 @@ function draw() {
     if (frameCount % 60 < 30) {
       text("Press ENTER to continue", 480 / 2, 360 / 2 + 40);
     }
-  } else if (gameState === "poem_intro") {
+  } else if (gameState == "poem_intro") {
     frameRate(60);
     drawPoemIntroScreen([
       "Two roads diverged in a yellow wood,",
@@ -110,10 +110,10 @@ function draw() {
       "And looked down one as far as I could",
       "To where it bent in the undergrowth;"
     ]);
-  } else if (gameState === "game") {
+  } else if (gameState == "game") {
     frameRate(30);
     drawGameScreen(backgroundImage, allowedAreas);
-  } else if (gameState === "path_poem_left") {
+  } else if (gameState == "path_poem_left") {
     frameRate(60);
     drawPathPoemScreen([
       "Then took the other, worn and wide,",
@@ -122,7 +122,7 @@ function draw() {
       "Though less a mystery, more sincere,",
       "A path familiar, yet still unknown,"
     ]);
-  } else if (gameState === "path_poem_right") {
+  } else if (gameState == "path_poem_right") {
     frameRate(60);
     drawPathPoemScreen([
       "Then took the other, as just as fair,",
@@ -131,13 +131,13 @@ function draw() {
       "Though as for that the passing there",
       "Had worn them really about the same,"
     ]);
-  } else if (gameState === "path_game_left") {
+  } else if (gameState == "path_game_left") {
     frameRate(30);
     drawGameScreen(backgroundLeft, leftAllowed);
-  } else if (gameState === "path_game_right") {
+  } else if (gameState == "path_game_right") {
     frameRate(30);
     drawGameScreen(backgroundRight, rightAllowed);
-  } else if (gameState === "final_poem_left") {
+  } else if (gameState == "final_poem_left") {
     frameRate(60);
     drawPathPoemScreen([
       "And both that morning equally lay",
@@ -146,7 +146,7 @@ function draw() {
       "The one where many steps had strayed,",
       "And with that choice, I left behind fear.,"
     ]);
-  } else if (gameState === "final_poem_right") {
+  } else if (gameState == "final_poem_right") {
     frameRate(60);
     drawPathPoemScreen([
       "And both that morning equally lay",
@@ -155,11 +155,11 @@ function draw() {
       "Yet knowing how way leads on to way,",
       "I doubted if I should ever come back.,"
     ]);
-  } else if (gameState === "final_game_left") {
+  } else if (gameState == "final_game_left") {
     frameRate(60);
     drawGameScreen(backgroundLeftFinal, leftAllowed);
     drawFinalScreenPrompt();
-  } else if (gameState === "final_game_right") {
+  } else if (gameState == "final_game_right") {
     frameRate(60);
     drawGameScreen(backgroundRightFinal, rightAllowed);
     fireflies.forEach(f => {
@@ -167,7 +167,7 @@ function draw() {
       f.display();
     });
     drawFinalScreenPrompt();
-  } else if (gameState === "final_poem_left_2") {
+  } else if (gameState == "final_poem_left_2") {
     frameRate(60);
     drawPathPoemScreen([
       "I shall be telling this with a smile",
@@ -176,7 +176,7 @@ function draw() {
       "Took the one well-worn, with ease,",
       "And that has made all the difference."
     ]);
-  } else if (gameState === "final_poem_right_2") {
+  } else if (gameState == "final_poem_right_2") {
     frameRate(60);
     drawPathPoemScreen([
       "I shall be telling this with a sigh",
@@ -200,18 +200,18 @@ function drawGameScreen(bgImg, allowed) {
   let frameW = spriteImage.width / spriteCols;
   let frameH = spriteImage.height / spriteRows;
 
-  if (xdir === 0 && ydir === 0) {
+  if (xdir == 0 && ydir == 0) {
     image(sprites[0][idleCol], x, y, frameW, frameH);
   } else {
     image(sprites[row][count], x, y, frameW, frameH);
   }
 
-  if (gameState === "game") {
+  if (gameState == "game") {
     if (playerInsideRect(pathChoiceLeft)) startTransition("path_poem_left");
     else if (playerInsideRect(pathChoiceRight)) startTransition("path_poem_right");
-  } else if (gameState === "path_game_left") {
+  } else if (gameState == "path_game_left") {
     if (playerInsideRect(secondPathChoice)) startTransition("final_poem_left");
-  } else if (gameState === "path_game_right") {
+  } else if (gameState == "path_game_right") {
     if (playerInsideRect(secondPathChoice)) startTransition("final_poem_right");
   }
 }
@@ -256,11 +256,11 @@ function drawFinalScreenPrompt() {
 }
 
 function handlePlayerMovement() {
-  if (gameState === "final_game_left" || gameState === "final_game_right") return;
+  if (gameState == "final_game_left" || gameState == "final_game_right") return;
 
   let oldX = x, oldY = y;
   if ((xdir !== 0 || ydir !== 0)) {
-    if (frameCount % 5 === 0) {
+    if (frameCount % 5 == 0) {
       count = (count + 1) % spriteCols;
     }
     x += xdir;
@@ -289,11 +289,11 @@ function keyPressed(event) {
   if (transitioning) return;
 
   if (
-    event.key === 'ArrowUp' ||
-    event.key === 'ArrowDown' ||
-    event.key === 'ArrowLeft' ||
-    event.key === 'ArrowRight' ||
-    event.key === 'Enter'
+    event.key == 'ArrowUp' ||
+    event.key == 'ArrowDown' ||
+    event.key == 'ArrowLeft' ||
+    event.key == 'ArrowRight' ||
+    event.key == 'Enter'
   ) {
     event.preventDefault();
   }
@@ -319,31 +319,31 @@ function keyPressed(event) {
     }
   }
 
-  if (event.key === 'Enter') {
-    if (gameState === "title") {
+  if (event.key == 'Enter') {
+    if (gameState == "title") {
       if (!musicStarted) {
       ambientMusic.play();
       musicStarted = true;
       }
       resetAllowedAreas();
       startTransition("poem_intro");
-    } else if (gameState === "poem_intro") {
+    } else if (gameState == "poem_intro") {
       startTransition("game");
-    } else if (gameState === "path_poem_left") {
+    } else if (gameState == "path_poem_left") {
       startTransition("path_game_left");
-    } else if (gameState === "path_poem_right") {
+    } else if (gameState == "path_poem_right") {
       startTransition("path_game_right");
-    } else if (gameState === "final_poem_left") {
+    } else if (gameState == "final_poem_left") {
       startTransition("final_game_left");
-    } else if (gameState === "final_poem_right") {
+    } else if (gameState == "final_poem_right") {
       startTransition("final_game_right");
-    } else if (gameState === "final_game_left") {
+    } else if (gameState == "final_game_left") {
       startTransition("final_poem_left_2");
-    } else if (gameState === "final_game_right") {
+    } else if (gameState == "final_game_right") {
       startTransition("final_poem_right_2");
     } else if (
-      gameState === "final_poem_left_2" ||
-      gameState === "final_poem_right_2"
+      gameState == "final_poem_left_2" ||
+      gameState == "final_poem_right_2"
     ) {
       resetAllowedAreas();
       ambientMusic.pause(); 
@@ -356,10 +356,10 @@ function keyPressed(event) {
 function keyReleased(event) {
   keys[event.key] = false;
 
-  if (!keys['ArrowUp'] && ydir === -2) ydir = 0;
-  if (!keys['ArrowDown'] && ydir === 2) ydir = 0;
-  if (!keys['ArrowLeft'] && xdir === -2) xdir = 0;
-  if (!keys['ArrowRight'] && xdir === 2) xdir = 0;
+  if (!keys['ArrowUp'] && ydir == -2) ydir = 0;
+  if (!keys['ArrowDown'] && ydir == 2) ydir = 0;
+  if (!keys['ArrowLeft'] && xdir == -2) xdir = 0;
+  if (!keys['ArrowRight'] && xdir == 2) xdir = 0;
 }
 
 function startTransition(targetState) {
@@ -379,27 +379,27 @@ function drawTransition() {
   fill(0, transitionAlpha);
   rect(0, 0, width, height);
 
-  if (transitionAlpha === 255 && transitionDirection === 1) {
+  if (transitionAlpha == 255 && transitionDirection == 1) {
     gameState = nextState;
     resetPlayerPositionForState(gameState);
     transitionDirection = -1;
-  } else if (transitionAlpha === 0 && transitionDirection === -1) {
+  } else if (transitionAlpha == 0 && transitionDirection == -1) {
     transitioning = false;
   }
 }
 
 function resetPlayerPositionForState(state) {
   if (
-    state === "game" ||
-    state === "path_game_left" ||
-    state === "path_game_right" ||
-    state === "final_game_left" ||
-    state === "final_game_right"
+    state == "game" ||
+    state == "path_game_left" ||
+    state == "path_game_right" ||
+    state == "final_game_left" ||
+    state == "final_game_right"
   ) {
     x = 240;
     y = 320;
 
-    if (state === "final_game_left" || state === "final_game_right") {
+    if (state == "final_game_left" || state == "final_game_right") {
       y -= 60;
     }
 
@@ -411,37 +411,3 @@ function resetPlayerPositionForState(state) {
   }
 }
 
-class Firefly {
-  constructor() {
-    this.x = random(480);
-    this.y = random(360);
-    this.size = random(2, 5);
-    this.speedX = random(-0.5, 0.5);
-    this.speedY = random(-0.5, 0.5);
-    this.alpha = random(100, 255);
-    this.alphaDirection = random() < 0.5 ? -1 : 1;
-  }
-
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-
-    if (this.x < 0 || this.x > 480) this.speedX *= -1;
-    if (this.y < 0 || this.y > 360) this.speedY *= -1;
-
-    this.alpha += this.alphaDirection * 2;
-    if (this.alpha < 100) {
-      this.alpha = 100;
-      this.alphaDirection *= -1;
-    } else if (this.alpha > 255) {
-      this.alpha = 255;
-      this.alphaDirection *= -1;
-    }
-  }
-
-  display() {
-    noStroke();
-    fill(255, 255, 100, this.alpha);
-    ellipse(this.x, this.y, this.size);
-  }
-}
