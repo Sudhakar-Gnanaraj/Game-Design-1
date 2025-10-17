@@ -401,9 +401,7 @@ function keyPressed(event) {
       resetAllowedAreas();
       ambientMusic.pause(); 
       musicStarted = false; 
-      if (finalMusic.isPlaying()) {
-        finalMusic.stop();
-      }
+      resetGameVariables(); 
       startTransition("title");
     }
   }
@@ -484,5 +482,11 @@ function drawPlayerLight(radius = 100) {
       flashlightExpanding = false;
     }
   }
+}
+
+function resetGameVariables() {
+  flashlightRadius = 60;
+  flashlightExpanding = false;
+  finalMusic.stop();
 }
 
