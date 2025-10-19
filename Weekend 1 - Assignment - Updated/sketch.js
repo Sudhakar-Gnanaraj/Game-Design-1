@@ -224,22 +224,12 @@ function draw() {
   drawTransition();
 }
 
-/*function drawAllowedAreas() {
-  noFill();
-  stroke(0, 255, 0); 
-  strokeWeight(1);
-  
-  for (let area of allowedAreas) {
-    rect(area.x, area.y, area.w, area.h);
-  }
-}*/
 
 function drawGameScreen(bgImg, allowed) {
   image(bgImg, 480 / 2, 360 / 2, 480, 360);
   allowedAreas = allowed;
 
-  //drawAllowedAreas();
-  if (gameState === "path_game_right" /*|| gameState == "final_game_right"*/) {
+  if (gameState === "path_game_right") {
     drawPlayerLight(flashlightRadius);
   }
   handlePlayerMovement();
