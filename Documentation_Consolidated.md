@@ -2,13 +2,9 @@
 
 [View Live Demo](https://sudhakar-gnanaraj.github.io/Game-Design-1/Day%201/Assignment/)
 
----
-
 This **p5.js** sketch creates a simple landscape scene that visually represents *peace*.  
 The artwork features a **gradient sky** transitioning from white to a warm brown hue and **three trees** with organic, rounded shapes.  
 The composition and color palette evoke **serenity** and **balance**.
-
----
 
 ## Artistic Concept
 
@@ -21,13 +17,9 @@ Each tree, though slightly different in shape and height, stands harmoniously wi
 
 [View Live Demo](https://sudhakar-gnanaraj.github.io/Game-Design-1/Day%202/Assignment/)
 
----
-
 ## Overview
 This animation project is designed to **visually represent the emotional transition** from a state of *peace* to a state of *fear* using minimalistic landscape visuals and interactive elements.  
 The transition is triggered by a **mouse click**, shifting the viewer from a calm, serene environment to one of turmoil and disturbance.
-
----
 
 ## Animation 1: Peace
 
@@ -42,8 +34,6 @@ The transition is triggered by a **mouse click**, shifting the viewer from a cal
 
 ### **Effects**
 - **Animation:** Leaves slowly drifting down  
-
----
 
 ## Animation 2: Fear
 
@@ -61,14 +51,10 @@ The transition is triggered by a **mouse click**, shifting the viewer from a cal
 ### **Effects**
 - **Animation:** Diagonal rain and tree swaying  
 
----
-
 ## Interaction
 
 - **Trigger:** Mouse click  
 - **Function:** Transitions the scene from *Animation 1 (Peace)* to *Animation 2 (Fear)*  
-
----
 
 ## Future Improvements
 - Add **sound effects** for immersive visuals  
@@ -80,13 +66,9 @@ The transition is triggered by a **mouse click**, shifting the viewer from a cal
 
 [View Live Demo](https://sudhakar-gnanaraj.github.io/Game-Design-1/Day%203/Assignment/)
 
----
-
 ## Description
 This **p5.js** sketch generates a **grid of stylized vines** with curving stems, leaves, and colorful flowers.  
 Clicking the canvas regenerates the scene with new random vines and flowers, using **Bezier curves** for natural curvature and **trigonometry** for accurate leaf placement.
-
----
 
 ## Code Overview
 
@@ -103,8 +85,6 @@ Clicking the canvas regenerates the scene with new random vines and flowers, usi
   - Draw vines with leaves in each grid cell.  
   - Draw flowers at the endpoint of each vine (shifted by size on the x-axis).
 
----
-
 ## Vine Drawing Logic
 
 ### `drawVineWithLeaves(x, y)`
@@ -114,8 +94,6 @@ Clicking the canvas regenerates the scene with new random vines and flowers, usi
   - A thicker, lighter green vine as **background**.  
   - A thinner, darker green vine as **foreground**.  
 - Adds leaves using **tangent vectors** from the curve.
-
----
 
 ## Leaves
 
@@ -130,8 +108,6 @@ Clicking the canvas regenerates the scene with new random vines and flowers, usi
 - Draws a **stylized green leaf** using two `bezierVertex()` calls to form a closed shape.  
 - Leaves are rotated to appear as if growing naturally from the vine.
 
----
-
 ## Flowers
 
 ### `drawFlower(cx, cy, petalSize, petals)`
@@ -139,13 +115,9 @@ Clicking the canvas regenerates the scene with new random vines and flowers, usi
 - Petals are randomly colored.  
 - A **central circle** is drawn as the flower’s core.
 
----
-
 ## Color Usage
 - Vine colors use `colorMode(HSB)` for smooth **green variations**.  
 - Flower colors are randomly chosen **RGB values** for visual diversity.
-
----
 
 ## Interaction
 - **Clicking the canvas** regenerates a fresh vine-flower grid.  
@@ -157,14 +129,10 @@ Clicking the canvas regenerates the scene with new random vines and flowers, usi
 
 [View Live Demo](https://sudhakar-gnanaraj.github.io/Game-Design-1/Day%204/Assignment%20-%20Image%20Pattern/)
 
----
-
 ## Description
 This **p5.js** sketch generates a **computer-created grid pattern** made up of **random images**.  
 It loads a fixed number of image files and arranges them in a repeating grid layout.  
 Each grid cell displays one randomly selected image, producing a fresh and unique collage **every frame**.
-
----
 
 ## Program Flow
 1. All images are **loaded into memory** before the sketch begins.  
@@ -174,8 +142,6 @@ Each grid cell displays one randomly selected image, producing a fresh and uniqu
    - A complete grid of **randomly selected images** is drawn.  
 4. The process repeats, creating a **constantly changing visual composition**.
 
----
-
 ## Function Descriptions
 
 ### `preload()`
@@ -183,22 +149,16 @@ Each grid cell displays one randomly selected image, producing a fresh and uniqu
 - The images are named sequentially (e.g., `0.png`, `1.png`, `2.png`, etc.) and stored inside the **Images** folder.  
 - Each image is stored in an **array** so it can be randomly accessed later during pattern generation.
 
----
-
 ### `setup()`
 - Initializes the **canvas** and defines sketch behavior.  
 - The canvas automatically **fills the browser window**.  
 - The **frame rate** is intentionally kept **low**, so the grid pattern refreshes slowly — allowing each arrangement to be seen before it changes again.
-
----
 
 ### `draw()`
 - Continuously refreshes the screen and **regenerates the pattern**.  
 - Each frame begins with a **light background color**.  
 - Calls the `pattern()` function to generate the grid using the preloaded images.  
 - Contains **commented-out code** for an optional **screen recording** feature (future use).
-
----
 
 ### `pattern(size)`
 - Responsible for the **visual grid generation**.  
@@ -215,14 +175,10 @@ Each grid cell displays one randomly selected image, producing a fresh and uniqu
 
 [View Live Demo](https://sudhakar-gnanaraj.github.io/Game-Design-1/Day%205/Assignment-Sprite-2D-Array/)
 
----
-
 This program animates a **bat sprite sheet** using **p5.js**.  
 The sprite sheet is divided into multiple frames arranged in a **4×4 grid**.  
 Each row corresponds to a different movement direction — **up, down, left, right**.  
 The bat moves on the canvas based on arrow key inputs and cycles through the animation frames.
-
----
 
 ## How It Works
 
@@ -234,8 +190,6 @@ The bat moves on the canvas based on arrow key inputs and cycles through the ani
    - The sprite moves in that direction.
    - The frame animation runs continuously, simulating flying.
 
----
-
 ## Possible Improvements
 
 - Prevent the bat from flying off-screen  
@@ -246,8 +200,6 @@ The bat moves on the canvas based on arrow key inputs and cycles through the ani
 # Firefly Swarm Animation in p5.js
 
 [View Live Demo](https://sudhakar-gnanaraj.github.io/Game-Design-1/Day%206/Assignment/)
-
----
 
 This p5.js sketch creates an animated swarm of glowing fireflies.  
 Each firefly:
@@ -312,13 +264,10 @@ Draws a soft glowing circle representing the firefly’s light.
 
 [View Live Demo](https://sudhakar-gnanaraj.github.io/Game-Design-1/Day%207/Assignment/)
 
----
 
 This project is an interactive **p5.js** sketch that creates a dynamic field of animated flowers.  
 Each flower appears when the user clicks on the canvas.  
 The flowers move, bounce off edges, grow over time, and gently sway when the mouse moves near them.
-
----
 
 ## Visual and Interactive Effects
 
@@ -333,8 +282,6 @@ The flowers move, bounce off edges, grow over time, and gently sway when the mou
 
 - **Mouse Interaction:**  
   Clicking the mouse creates new flowers at any position.
-
----
 
 ## Flower Class Description
 
@@ -379,8 +326,6 @@ Each instance contains its own properties such as position, speed, size, and int
 
 [View Live Demo](https://sudhakar-gnanaraj.github.io/Game-Design-1/Weekend%201%20-%20Assignment/)
 
----
-
 **“The Road Taken”** is an interactive narrative inspired by Robert Frost’s *The Road Not Taken*.  
 The player navigates through different visual paths and poem screens, symbolizing life’s choices.  
 Each path (left or right) reveals different verses and outcomes, ending in a reflective conclusion.
@@ -391,8 +336,6 @@ The experience blends:
 - Interactive movement within restricted areas  
 - Background music and ambient effects  
 - Firefly particle effects for atmosphere  
-
----
 
 ## Game Flow Summary
 
@@ -420,8 +363,6 @@ The experience blends:
   Shows the last verses with thematic visuals (e.g., fireflies).  
   Ends with the final reflection.  
   ENTER resets back to title.
-
----
 
 ## Function-by-Function Documentation
 
@@ -503,8 +444,6 @@ The experience blends:
 - Resets player position and idle animation frame when entering a new scene.  
 - Shifts position slightly for final game scenes.
 
----
-
 ## Firefly Class (Particle System)
 
 **class `Firefly`**  
@@ -516,18 +455,12 @@ Represents a single glowing firefly used in the final scenes.
 | `update()`      | Moves the firefly, bounces off edges, and oscillates glow intensity |
 | `display()`     | Draws the glowing particle as a soft yellow ellipse |
 
----
-
 ## Sound System
 - `ambientMusic` is looped during gameplay once the player presses ENTER on the title screen.  
 - Music pauses and resets when the player returns to the title.
 
----
-
 ## Scene Scaling
 - The original coordinate system (480×360) is scaled proportionally to fit the browser window, ensuring consistent positioning across resolutions.
-
----
 
 ## Sprite Animation System
 - The character sprite sheet is divided into `spriteRows × spriteCols`:  
@@ -543,15 +476,11 @@ Represents a single glowing firefly used in the final scenes.
 
 [View Live Demo](https://sudhakar-gnanaraj.github.io/Game-Design-1/Weekend%201%20-%20Assignment%20-%20Updated/)
 
----
-
 ## Concept
 **The Road Taken** is an interactive poem inspired by Robert Frost’s *“The Road Not Taken.”*  
 The project combines literature, sound, and digital interaction to express the emotional weight of choice and reflection.  
 
 Players take control of a small traveler who reaches a symbolic crossroads in a forest. Each direction they choose leads to a unique poetic journey, reflecting different interpretations of Frost’s words. The goal is to evoke contemplation rather than challenge — allowing art, atmosphere, and emotion to guide the experience.
-
----
 
 ## Process and Design
 The experience unfolds through a sequence of carefully structured **game states**.  
@@ -565,8 +494,6 @@ Each state represents a distinct phase of the poetic narrative:
 
 Transitions between these scenes are smooth and gradual, creating a cinematic rhythm between stillness and motion.  
 Music accompanies the flow — ambient sounds set a reflective tone, while a final composition plays during the emotional ending.
-
----
 
 ## Core Elements and Techniques Used
 
@@ -599,8 +526,6 @@ The code ensures they transition smoothly without overlapping, maintaining emoti
 ### Atmospheric Details
 Small, glowing **fireflies** drift across the final scene, emphasizing stillness and wonder.
 
----
-
 ## Problems Faced and How They Were Solved
 
 ### Creating Smooth Scene Transitions
@@ -619,8 +544,6 @@ The fix involved explicitly stopping or pausing one track before starting anothe
 The final moment, where the flashlight expands to reveal the entire screen, originally happened too abruptly.  
 A **gradual expansion variable** was added so the circle of light slowly grows, visually representing realization and closure.  
 Once it reaches its maximum size, it triggers the final scene and music transition.
-
----
 
 ## Future Improvements
 - Introduce ambient visual effects such as fog, falling leaves, or rain.  
