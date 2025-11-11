@@ -6,7 +6,7 @@ The composition and color palette evoke **serenity** and **balance**.
 
 ---
 
-## 🎨 Artistic Concept
+## Artistic Concept
 
 This artwork captures **peace through simplicity** — using minimal shapes, muted earth tones, and balanced composition.  
 Each tree, though slightly different in shape and height, stands harmoniously with the others, emphasizing **coexistence** and **natural beauty**.
